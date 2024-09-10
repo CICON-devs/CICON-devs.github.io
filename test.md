@@ -1,10 +1,266 @@
-Great! Let's continue with the next sections of the documentation.
+Sure! Below are the markdown files for each component in the `stages` folder, documenting their usage and functionality.
 
 ---
 
-### `/docs/architecture/folder-structure.md`
+### `/docs/stages/overview.md`
 
 ```md
+# Stages Overview
+
+The `stages` folder contains all the components responsible for managing the different stages of the shoe repair process. These stages guide the user through the workflow, from uploading shoe fault details to payment completion.
+
+## Stages Components
+
+1. **PromptAndPhotoUploadComponent**: Handles the prompt and photo upload stage.
+2. **AnalysisComponent**: Analyzes the uploaded images and returns repair suggestions.
+3. **ShoeShowcaseComponent**: Displays the uploaded images and parsed fault details for the user to confirm.
+4. **BasketComponent**: Displays available repair services and product suggestions, allowing users to select and review their basket before checkout.
+5. **CheckoutComponent**: Handles the payment process via Stripe.
+6. **PaymentReviewComponent**: Displays a summary of the payment after a successful transaction.
+7. **DetailsComponent**: A currently unused component for collecting user details (e.g., name, email, phone).
+```
+
+---
+
+### `/docs/stages/PromptAndPhotoUploadComponent.md`
+
+```md
+# PromptAndPhotoUploadComponent
+
+This component handles the first stage of the shoe repair process, where users can upload images of their shoe faults and provide a brief description for each. Users can add up to three repair sections.
+
+## Props
+
+- **prompts**: An array of fault descriptions provided by the user.
+- **setPrompts**: A function to update the `prompts` array.
+- **files**: An array of uploaded files (images) for each repair.
+- **setFiles**: A function to update the `files` array.
+- **changePage**: A function to trigger the next stage in the process.
+
+## Example Usage
+
+```jsx
+const prompts = ["Sole damage", "Heel issue"];
+const files = [null, null];
+const setPrompts = (newPrompts) => { ... };
+const setFiles = (newFiles) => { ... };
+const changePage = () => { ... };
+
+<PromptAndPhotoUploadComponent 
+  prompts={prompts}
+  setPrompts={setPrompts}
+  files={files}
+  setFiles={setFiles}
+  changePage={changePage}
+/>
+```
+
+## Key Functions
+
+- **handlePromptChange**: Updates the fault description for each repair section.
+- **handleFileInputChange**: Handles file uploads (only accepts PNG or JPEG images).
+- **addRepairSection**: Adds another repair section, up to a maximum of 3.
+- **removeRepairSection**: Removes a repair section.
+```
+
+---
+
+### `/docs/stages/AnalysisComponent.md`
+
+```md
+# AnalysisComponent
+
+The `AnalysisComponent` analyzes the uploaded images and fault descriptions and fetches repair services and product suggestions for each fault.
+
+## Props
+
+- **prompts**: Array of fault descriptions provided by the user.
+- **files**: Array of uploaded files (images).
+- **setFaultInfo**: Function to store the fault analysis results.
+- **setRepairServices**: Function to store the suggested repair services.
+- **setProductSuggestions**: Function to store suggested products.
+- **changePage**: Function to trigger navigation to the next stage.
+
+## Example Usage
+
+```jsx
+<AnalysisComponent 
+  prompts={prompts}
+  files={files}
+  setFaultInfo={setFaultInfo}
+  setRepairServices={setRepairServices}
+  setProductSuggestions={setProductSuggestions}
+  changePage={changePage}
+/>
+```
+
+## Key Functions
+
+- **analyzeFaultsAndFetchServices**: Analyzes the faults and fetches repair services and product suggestions from the backend API.
+- **setLoading**: Manages the loading state while the analysis is in progress.
+- **setError**: Displays error messages if the analysis fails.
+```
+
+---
+
+### `/docs/stages/ShoeShowcaseComponent.md`
+
+```md
+# ShoeShowcaseComponent
+
+This component showcases the uploaded shoe images and their corresponding fault information, parsed from the analysis stage. The user can review these details before selecting repairs.
+
+## Props
+
+- **files**: Array of uploaded files (images).
+- **faultInfo**: Array of parsed fault information for each repair section.
+
+## Example Usage
+
+```jsx
+const files = [file1, file2];
+const faultInfo = [fault1, fault2];
+
+<ShoeShowcaseComponent 
+  files={files}
+  faultInfo={faultInfo}
+/>
+```
+
+## Key Features
+
+- **Image Display**: Shows the uploaded images for each repair section.
+- **Fault Information**: Displays details like the type of shoe, fault descriptions, material, part, severity, etc.
+```
+
+---
+
+### `/docs/stages/BasketComponent.md`
+
+```md
+# BasketComponent
+
+The `BasketComponent` allows users to select the repair services and products they want for their shoes. The component calculates the total price and triggers a page change to the checkout stage.
+
+## Props
+
+- **repairServices**: Array of available repair services.
+- **productSuggestions**: Array of product suggestions (optional).
+- **changePage**: Function to trigger the page change to the checkout stage.
+
+## Example Usage
+
+```jsx
+const repairServices = [
+  { name: 'Sole Replacement', price: 50 },
+  { name: 'Heel Repair', price: 20 }
+];
+const productSuggestions = [
+  { name: 'Shoe Polish', price: 5 }
+];
+
+<BasketComponent
+  repairServices={repairServices}
+  productSuggestions={productSuggestions}
+  changePage={(totalAmount, selectedServices, selectedProducts) => { ... }}
+/>
+```
+
+## Key Functions
+
+- **handleSelectService**: Toggles the selection of a repair service.
+- **handleSelectProduct**: Toggles the selection of a product.
+- **handleCheckout**: Calculates the total price and triggers the page change.
+```
+
+---
+
+### `/docs/stages/CheckoutComponent.md`
+
+```md
+# CheckoutComponent
+
+The `CheckoutComponent` handles the payment process using Stripe. Users can review their selected services and products and proceed to complete the payment.
+
+## Props
+
+- **totalAmount**: The total amount to be paid.
+- **services**: Array of selected services.
+- **products**: Array of selected products.
+- **changePage**: Function to trigger the page change after successful payment.
+
+## Example Usage
+
+```jsx
+<CheckoutComponent
+  totalAmount={totalAmount}
+  services={selectedServices}
+  products={selectedProducts}
+  changePage={handlePaymentSuccess}
+/>
+```
+
+## Key Functions
+
+- **handlePayment**: Triggers the payment process using the Stripe API.
+- **generateOrderId**: Generates a random order ID for the transaction.
+```
+
+---
+
+### `/docs/stages/PaymentReviewComponent.md`
+
+```md
+# PaymentReviewComponent
+
+The `PaymentReviewComponent` displays a summary of the payment after a successful transaction. It shows the services and products the user paid for and provides a message about the payment being on hold.
+
+## Props
+
+- **services**: Array of selected services.
+- **products**: Array of selected products.
+- **totalAmount**: Total amount paid by the user.
+
+## Example Usage
+
+```jsx
+<PaymentReviewComponent
+  services={services}
+  products={products}
+  totalAmount={totalAmount}
+/>
+```
+
+## Key Features
+
+- **Order Review**: Displays the services and products selected by the user.
+- **Payment Summary**: Shows the total amount paid and confirms the payment status.
+```
+
+---
+
+### `/docs/stages/DetailsComponent.md`
+
+```md
+# DetailsComponent (Unused)
+
+This component is currently unused. It was designed to collect user details such as name, email, and phone number. It may be incorporated into the checkout flow or onboarding in the future.
+
+## Props
+
+- **userDetails**: Object containing the user's details (full name, email, phone).
+- **setUserDetails**: Function to update the user's details.
+- **changePage**: Function to trigger the page change after the user submits their details.
+```
+
+---
+
+This structure ensures all components in the `stages` folder are documented with their respective functionalities, props, and examples. Let me know if you'd like to add or refine any sections!
+
+
+----
+
+
 # Folder Structure
 
 The **CICON AI Shoe Repair App** is structured to separate the concerns of API routes, components, and context for better maintainability and scalability. Here’s an overview of the folder structure:
@@ -40,199 +296,4 @@ The main directories in the app include:
 - **stages**: Components related to the shoe repair process.
 
 For details on each section, refer to the relevant part of the documentation.
-```
 
----
-
-### `/docs/architecture/database.md`
-
-```md
-# Database Structure
-
-The **CICON AI Shoe Repair App** uses **PostgreSQL** as its primary database. The database schema includes tables for managing users, orders, cobbler pricing, and more.
-
-## Main Tables
-
-### Users
-
-| Column       | Type        | Description                         |
-|--------------|-------------|-------------------------------------|
-| id           | UUID        | Unique identifier for each user     |
-| full_name    | VARCHAR      | The full name of the user           |
-| email        | VARCHAR      | User email address                  |
-| phone        | VARCHAR      | User phone number                   |
-| created_at   | TIMESTAMP    | Timestamp for user creation         |
-
-### Orders
-
-| Column       | Type        | Description                         |
-|--------------|-------------|-------------------------------------|
-| id           | UUID        | Unique identifier for each order    |
-| user_id      | UUID        | Foreign key linking to `users`      |
-| status       | ENUM        | Order status (pending, confirmed, etc.) |
-| amount       | DECIMAL      | Total amount for the order          |
-| created_at   | TIMESTAMP    | Timestamp for order creation        |
-
-### Cobbler Pricing
-
-| Column       | Type        | Description                         |
-|--------------|-------------|-------------------------------------|
-| id           | UUID        | Unique identifier for each pricing entry |
-| cobbler_id   | UUID        | Foreign key linking to `cobblers`   |
-| shoe_type    | VARCHAR      | The type of shoe being repaired     |
-| material     | VARCHAR      | Material type                      |
-| part_of_item | VARCHAR      | Part of the shoe being repaired     |
-| fault        | VARCHAR      | Description of the fault            |
-| fix          | VARCHAR      | Description of the fix              |
-| price        | DECIMAL      | Price for the repair                |
-
-For a full schema dump, check the `/db/cicondb.sql` file.
-```
-
----
-
-### `/docs/api-routes/cobbler/get-prices.md`
-
-```md
-# API: GET /api/cobbler/get-prices
-
-This API endpoint fetches the pricing details for cobbler services. It reads the prices from an Excel file located in the `/public` directory and returns them in JSON format.
-
-## Example Request
-
-```http
-GET /api/cobbler/get-prices
-```
-
-## Response
-
-```json
-{
-  "prices": [
-    {
-      "shoes": "Boots",
-      "material": "Leather",
-      "part_of_item": "Heel",
-      "fault": "Worn Out",
-      "fix": "Replace Heel",
-      "size": "Large",
-      "price": 50,
-      "price_pair": 90
-    },
-    ...
-  ]
-}
-```
-
-## Error Responses
-
-- **500 Internal Server Error**: Occurs if the Excel file can't be read or if the file is missing.
-
-## Use Case
-
-This endpoint is used to display cobbler pricing details on the frontend, allowing cobblers to review and amend their prices.
-```
-
----
-
-### `/docs/guides/cobbler-onboarding.md`
-
-```md
-# Cobbler Onboarding Guide
-
-The cobbler onboarding flow allows cobblers to set up their Stripe accounts and start accepting payments. This process uses the Stripe API for account creation and onboarding link generation.
-
-## Flow Overview
-
-1. **Create Stripe Account**: The API creates a new Stripe connected account for the cobbler.
-2. **Generate Onboarding Link**: An account onboarding link is generated and sent to the cobbler.
-3. **Cobbler Completes Onboarding**: The cobbler is redirected to Stripe to complete their account setup.
-
-## Key API Endpoints
-
-### POST /api/stripe/create-account
-
-Creates a new Stripe connected account for the cobbler.
-
-### POST /api/stripe/generate-account-link
-
-Generates an onboarding link for the cobbler to complete their Stripe account setup.
-
-```http
-POST /api/stripe/generate-account-link
-{
-  "accountId": "acct_1PmxIJRwFlCrWCeA"
-}
-```
-
-## Frontend Flow
-
-The **CobblerOnboarding.tsx** component handles the onboarding process. Once the onboarding link is generated, the cobbler is redirected to Stripe for account setup.
-```
-
----
-
-### `/docs/theming/daisyui.md`
-
-```md
-# Theming with DaisyUI
-
-The **CICON AI Shoe Repair App** uses **DaisyUI** as its main UI component library. DaisyUI is built on top of Tailwind CSS and provides a set of customizable components with predefined themes.
-
-## Key Features
-
-- **Predefined Themes**: The app uses the "lemonade" theme from DaisyUI.
-- **Responsive Components**: DaisyUI components are fully responsive and mobile-friendly.
-- **Customizable**: You can easily change the theme by updating the `data-theme` attribute in the HTML body tag.
-
-## Theme Setup
-
-In the **RootLayout.tsx** file, the theme is applied using the `data-theme` attribute on the `body` element:
-
-```tsx
-<body data-theme="lemonade" className="min-h-screen flex items-center justify-center">
-```
-
-You can switch to other DaisyUI themes by changing the value of `data-theme`.
-
-## Resources
-
-- [DaisyUI Documentation](https://daisyui.com/)
-- [Tailwind CSS Documentation](https://tailwindcss.com/)
-```
-
----
-
-### `/docs/troubleshooting.md`
-
-```md
-# Troubleshooting
-
-This section contains common issues and troubleshooting tips for the **CICON AI Shoe Repair App**.
-
-## Common Issues
-
-### 1. Stripe Payment Fails
-
-**Error**: "Payment method not found"
-- **Solution**: Ensure that you have correctly set up your Stripe environment variables in the `.env.local` file and that the connected account ID is valid.
-
-### 2. Twilio SMS Not Sending
-
-**Error**: "Invalid phone number"
-- **Solution**: Check that the phone number being passed to the Twilio API is in the correct format (`+[country code][phone number]`).
-
-### 3. Database Connection Error
-
-**Error**: "Could not connect to PostgreSQL"
-- **Solution**: Verify that the PostgreSQL server is running and that the correct connection details are set in the environment variables.
-
-### 4. Missing Excel File for Pricing
-
-**Error**: "File not found"
-- **Solution**: Ensure the `prices.xlsx` file exists in the `public` directory and is formatted correctly.
-```
-
----
-
-Let me know if you’d like to move forward with this, or if there’s anything specific you’d like to adjust in the documentation!

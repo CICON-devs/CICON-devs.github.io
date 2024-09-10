@@ -8,7 +8,7 @@ const config: Config = {
   favicon: 'img/favicon.ico',
 
   // Set the production url of your site here
-  url: 'CICON-devs.github.io',
+  url: 'https://cicon-devs.github.io',
   // Set the /<baseUrl>/ pathname under which your site is served
   // For GitHub pages deployment, it is often '/<projectName>/'
   baseUrl: '/',
@@ -16,7 +16,7 @@ const config: Config = {
   // GitHub pages deployment config.
   // If you aren't using GitHub pages, you don't need these.
   organizationName: 'CICON-devs', // Usually your GitHub org/user name.
-  projectName: 'CICON-devs.github.io', // Usually your repo name.
+  projectName: 'cicon-devs.github.io', // Usually your repo name.
 
   trailingSlash: false,
 
