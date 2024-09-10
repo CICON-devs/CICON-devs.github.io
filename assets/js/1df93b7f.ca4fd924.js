@@ -1,1 +1,0 @@
-"use strict";(self.webpackChunkcicon_docs=self.webpackChunkcicon_docs||[]).push([[583],{6866:(c,s,n)=>{n.r(s),n.d(s,{default:()=>r});n(6540);var o=n(6347),e=n(4848);function r(){return(0,e.jsx)(o.rd,{to:"/docs/intro"})}}}]);
