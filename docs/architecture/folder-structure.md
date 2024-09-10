@@ -117,6 +117,3 @@ This folder contains the components that handle the different stages of the shoe
 ---
 
 This folder structure organizes the app in a way that separates core concerns, making the codebase easier to maintain and scale.
-```
-
-Let me know if you need further adjustments!
