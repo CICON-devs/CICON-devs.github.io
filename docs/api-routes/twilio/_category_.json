@@ -1,8 +1,0 @@
-{
-  "label": "Twilio",
-  "position": 3,
-  "link": {
-    "type": "generated-index",
-    "description": "API routes related to the Twilio integration"
-  }
-}
