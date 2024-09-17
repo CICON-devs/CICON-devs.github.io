@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="en" dir="ltr" class="docs-wrapper plugin-docs plugin-id-default docs-version-current docs-doc-page docs-doc-id-main-repair-flow" data-has-hydrated="false">
+<head>
+<meta charset="UTF-8">
+<meta name="generator" content="Docusaurus v3.5.2">
+<title data-rh="true">Main Repair Flow | CICON AI App Documentation</title><meta data-rh="true" name="viewport" content="width=device-width,initial-scale=1"><meta data-rh="true" name="twitter:card" content="summary_large_image"><meta data-rh="true" property="og:url" content="https://cicon-devs.github.io/main-repair-flow"><meta data-rh="true" property="og:locale" content="en"><meta data-rh="true" name="docusaurus_locale" content="en"><meta data-rh="true" name="docsearch:language" content="en"><meta data-rh="true" name="docusaurus_version" content="current"><meta data-rh="true" name="docusaurus_tag" content="docs-default-current"><meta data-rh="true" name="docsearch:version" content="current"><meta data-rh="true" name="docsearch:docusaurus_tag" content="docs-default-current"><meta data-rh="true" property="og:title" content="Main Repair Flow | CICON AI App Documentation"><meta data-rh="true" name="description" content="The main repair flow of the application is a multi-step process that guides users through submitting their shoe repair details, selecting repair services, and completing the checkout process. Each stage of the process is rendered dynamically based on the URL stage parameter."><meta data-rh="true" property="og:description" content="The main repair flow of the application is a multi-step process that guides users through submitting their shoe repair details, selecting repair services, and completing the checkout process. Each stage of the process is rendered dynamically based on the URL stage parameter."><link data-rh="true" rel="icon" href="/img/favicon.ico"><link data-rh="true" rel="canonical" href="https://cicon-devs.github.io/main-repair-flow"><link data-rh="true" rel="alternate" href="https://cicon-devs.github.io/main-repair-flow" hreflang="en"><link data-rh="true" rel="alternate" href="https://cicon-devs.github.io/main-repair-flow" hreflang="x-default"><link rel="stylesheet" href="/assets/css/styles.fc33321d.css">
+<script src="/assets/js/runtime~main.7d4315ed.js" defer="defer"></script>
+<script src="/assets/js/main.df3da55c.js" defer="defer"></script>
+</head>
+<body class="navigation-with-keyboard">
+<script>!function(){function t(t){document.documentElement.setAttribute("data-theme",t)}var e=function(){try{return new URLSearchParams(window.location.search).get("docusaurus-theme")}catch(t){}}()||function(){try{return window.localStorage.getItem("theme")}catch(t){}}();t(null!==e?e:"light")}(),function(){try{const n=new URLSearchParams(window.location.search).entries();for(var[t,e]of n)if(t.startsWith("docusaurus-data-")){var a=t.replace("docusaurus-data-","data-");document.documentElement.setAttribute(a,e)}}catch(t){}}()</script><div id="__docusaurus"><div role="region" aria-label="Skip to main content"><a class="skipToContent_fXgn" href="#__docusaurus_skipToContent_fallback">Skip to main content</a></div><nav aria-label="Main" class="navbar navbar--fixed-top"><div class="navbar__inner"><div class="navbar__items"><button aria-label="Toggle navigation bar" aria-expanded="false" class="navbar__toggle clean-btn" type="button"><svg width="30" height="30" viewBox="0 0 30 30" aria-hidden="true"><path stroke="currentColor" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2" d="M4 7h22M4 15h22M4 23h22"></path></svg></button><a class="navbar__brand" href="/"><div class="navbar__logo"><img src="/img/logo.svg" alt="My Site Logo" class="themedComponent_mlkZ themedComponent--light_NVdE"><img src="/img/logo.svg" alt="My Site Logo" class="themedComponent_mlkZ themedComponent--dark_xIcU"></div><b class="navbar__title text--truncate">CICON AI App Documentation</b></a><a aria-current="page" class="navbar__item navbar__link navbar__link--active" href="/intro">Documentation</a></div><div class="navbar__items navbar__items--right"><div class="toggle_vylO colorModeToggle_DEke"><button class="clean-btn toggleButton_gllP toggleButtonDisabled_aARS" type="button" disabled="" title="Switch between dark and light mode (currently light mode)" aria-label="Switch between dark and light mode (currently light mode)" aria-live="polite"><svg viewBox="0 0 24 24" width="24" height="24" class="lightToggleIcon_pyhR"><path fill="currentColor" d="M12,9c1.65,0,3,1.35,3,3s-1.35,3-3,3s-3-1.35-3-3S10.35,9,12,9 M12,7c-2.76,0-5,2.24-5,5s2.24,5,5,5s5-2.24,5-5 S14.76,7,12,7L12,7z M2,13l2,0c0.55,0,1-0.45,1-1s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S1.45,13,2,13z M20,13l2,0c0.55,0,1-0.45,1-1 s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S19.45,13,20,13z M11,2v2c0,0.55,0.45,1,1,1s1-0.45,1-1V2c0-0.55-0.45-1-1-1S11,1.45,11,2z M11,20v2c0,0.55,0.45,1,1,1s1-0.45,1-1v-2c0-0.55-0.45-1-1-1C11.45,19,11,19.45,11,20z M5.99,4.58c-0.39-0.39-1.03-0.39-1.41,0 c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0s0.39-1.03,0-1.41L5.99,4.58z M18.36,16.95 c-0.39-0.39-1.03-0.39-1.41,0c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0c0.39-0.39,0.39-1.03,0-1.41 L18.36,16.95z M19.42,5.99c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06c-0.39,0.39-0.39,1.03,0,1.41 s1.03,0.39,1.41,0L19.42,5.99z M7.05,18.36c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06 c-0.39,0.39-0.39,1.03,0,1.41s1.03,0.39,1.41,0L7.05,18.36z"></path></svg><svg viewBox="0 0 24 24" width="24" height="24" class="darkToggleIcon_wfgR"><path fill="currentColor" d="M9.37,5.51C9.19,6.15,9.1,6.82,9.1,7.5c0,4.08,3.32,7.4,7.4,7.4c0.68,0,1.35-0.09,1.99-0.27C17.45,17.19,14.93,19,12,19 c-3.86,0-7-3.14-7-7C5,9.07,6.81,6.55,9.37,5.51z M12,3c-4.97,0-9,4.03-9,9s4.03,9,9,9s9-4.03,9-9c0-0.46-0.04-0.92-0.1-1.36 c-0.98,1.37-2.58,2.26-4.4,2.26c-2.98,0-5.4-2.42-5.4-5.4c0-1.81,0.89-3.42,2.26-4.4C12.92,3.04,12.46,3,12,3L12,3z"></path></svg></button></div><div class="navbarSearchContainer_Bca1"></div></div></div><div role="presentation" class="navbar-sidebar__backdrop"></div></nav><div id="__docusaurus_skipToContent_fallback" class="main-wrapper mainWrapper_z2l0"><div class="docsWrapper_hBAB"><button aria-label="Scroll back to top" class="clean-btn theme-back-to-top-button backToTopButton_sjWU" type="button"></button><div class="docRoot_UBD9"><aside class="theme-doc-sidebar-container docSidebarContainer_YfHR"><div class="sidebarViewport_aRkj"><div class="sidebar_njMd"><nav aria-label="Docs sidebar" class="menu thin-scrollbar menu_SIkG"><ul class="theme-doc-sidebar-menu menu__list"><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/intro">Introduction</a></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist" href="/category/setup">Setup</a><button aria-label="Expand sidebar category &#x27;Setup&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist" href="/category/app-architecture">App Architecture</a><button aria-label="Expand sidebar category &#x27;App Architecture&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link menu__link--active" aria-current="page" href="/main-repair-flow">Main Repair Flow</a></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist" href="/category/api-routes">API Routes</a><button aria-label="Expand sidebar category &#x27;API Routes&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist" href="/category/guides">Guides</a><button aria-label="Expand sidebar category &#x27;Guides&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/context">Context Providers</a></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist" href="/category/themes">Themes</a><button aria-label="Expand sidebar category &#x27;Themes&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li></ul></nav></div></div></aside><main class="docMainContainer_TBSr"><div class="container padding-top--md padding-bottom--lg"><div class="row"><div class="col docItemCol_VOVn"><div class="docItemContainer_Djhp"><article><nav class="theme-doc-breadcrumbs breadcrumbsContainer_Z_bl" aria-label="Breadcrumbs"><ul class="breadcrumbs" itemscope="" itemtype="https://schema.org/BreadcrumbList"><li class="breadcrumbs__item"><a aria-label="Home page" class="breadcrumbs__link" href="/"><svg viewBox="0 0 24 24" class="breadcrumbHomeIcon_YNFT"><path d="M10 19v-5h4v5c0 .55.45 1 1 1h3c.55 0 1-.45 1-1v-7h1.7c.46 0 .68-.57.33-.87L12.67 3.6c-.38-.34-.96-.34-1.34 0l-8.36 7.53c-.34.3-.13.87.33.87H5v7c0 .55.45 1 1 1h3c.55 0 1-.45 1-1z" fill="currentColor"></path></svg></a></li><li itemscope="" itemprop="itemListElement" itemtype="https://schema.org/ListItem" class="breadcrumbs__item breadcrumbs__item--active"><span class="breadcrumbs__link" itemprop="name">Main Repair Flow</span><meta itemprop="position" content="1"></li></ul></nav><div class="tocCollapsible_ETCw theme-doc-toc-mobile tocMobile_ITEo"><button type="button" class="clean-btn tocCollapsibleButton_TO0P">On this page</button></div><div class="theme-doc-markdown markdown"><header><h1>Main Repair Flow</h1></header>
+<p>The <strong>main repair flow</strong> of the application is a multi-step process that guides users through submitting their shoe repair details, selecting repair services, and completing the checkout process. Each stage of the process is rendered dynamically based on the URL stage parameter.</p>
+<hr>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="stages-overview">Stages Overview<a href="#stages-overview" class="hash-link" aria-label="Direct link to Stages Overview" title="Direct link to Stages Overview">​</a></h2>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="stages">Stages:<a href="#stages" class="hash-link" aria-label="Direct link to Stages:" title="Direct link to Stages:">​</a></h3>
+<ol>
+<li><strong>Prompt and Photo Upload Stage</strong>: Users provide details about their shoes and upload photos.</li>
+<li><strong>Analysis Stage</strong>: The application analyzes the uploaded photos and generates repair suggestions.</li>
+<li><strong>Repair Selection Stage</strong>: Users select repair services and additional product recommendations for their shoes.</li>
+<li><strong>Checkout Stage</strong>: Users review their order and complete the payment process.</li>
+<li><strong>Payment Success Stage</strong>: The final stage where users are shown a summary of their order and payment status.</li>
+</ol>
+<hr>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="stage-flow-appstagesstagepagetsx"><strong>Stage Flow</strong> (<code>app/stages/[stage]/page.tsx</code>)<a href="#stage-flow-appstagesstagepagetsx" class="hash-link" aria-label="Direct link to stage-flow-appstagesstagepagetsx" title="Direct link to stage-flow-appstagesstagepagetsx">​</a></h2>
+<p>This component renders different child components based on the current stage, such as uploading images, analyzing faults, selecting repairs, completing the order, and making payments.</p>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="key-hooks-used">Key Hooks Used:<a href="#key-hooks-used" class="hash-link" aria-label="Direct link to Key Hooks Used:" title="Direct link to Key Hooks Used:">​</a></h3>
+<ul>
+<li><strong><code>useParams</code></strong>: Fetches the stage parameter from the URL.</li>
+<li><strong><code>useRouter</code></strong>: Manages navigation between stages.</li>
+<li><strong><code>useStageContext</code></strong>: Accesses shared state for each stage.</li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="functions">Functions:<a href="#functions" class="hash-link" aria-label="Direct link to Functions:" title="Direct link to Functions:">​</a></h3>
+<ul>
+<li><strong><code>handleBasketToDetails</code></strong>: Transitions from repair selection to order details by setting the total amount.</li>
+<li><strong><code>handleDetailsToCheckout</code></strong>: Proceeds from order details to the checkout stage.</li>
+<li><strong><code>renderStageComponent</code></strong>: Renders the appropriate stage based on the current URL parameter.</li>
+</ul>
+<hr>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="prompt-and-photo-upload-stage-appstagespromptandphotouploadcomponenttsx"><strong>Prompt and Photo Upload Stage</strong> (<code>app/stages/PromptAndPhotoUploadComponent.tsx</code>)<a href="#prompt-and-photo-upload-stage-appstagespromptandphotouploadcomponenttsx" class="hash-link" aria-label="Direct link to prompt-and-photo-upload-stage-appstagespromptandphotouploadcomponenttsx" title="Direct link to prompt-and-photo-upload-stage-appstagespromptandphotouploadcomponenttsx">​</a></h2>
+<p>In this stage, users:</p>
+<ul>
+<li>Provide prompts describing their shoe repairs.</li>
+<li>Upload up to 3 photos per repair.</li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="features">Features:<a href="#features" class="hash-link" aria-label="Direct link to Features:" title="Direct link to Features:">​</a></h3>
+<ul>
+<li>Multiple repair sections can be added, up to a limit of 3.</li>
+<li>Each section has a prompt and file upload area.</li>
+<li>Files are validated (e.g., max 3 files per repair section).</li>
+<li>User is required to input prompts and upload photos before proceeding to the next stage.</li>
+</ul>
+<hr>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="analysis-stage-appstagesanalysiscomponenttsx"><strong>Analysis Stage</strong> (<code>app/stages/AnalysisComponent.tsx</code>)<a href="#analysis-stage-appstagesanalysiscomponenttsx" class="hash-link" aria-label="Direct link to analysis-stage-appstagesanalysiscomponenttsx" title="Direct link to analysis-stage-appstagesanalysiscomponenttsx">​</a></h2>
+<p>This stage processes the uploaded photos and prompts to generate repair suggestions. The application:</p>
+<ul>
+<li>Sends the images and prompts to a backend service for analysis.</li>
+<li>Receives fault analysis, repair services, and product suggestions.</li>
+<li>Automatically transitions to the repair selection stage once the analysis is complete.</li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="key-points">Key Points:<a href="#key-points" class="hash-link" aria-label="Direct link to Key Points:" title="Direct link to Key Points:">​</a></h3>
+<ul>
+<li>If faults or files are missing, an error message is displayed.</li>
+<li>The analysis result (fault info) is stored in the context for the next stage.</li>
+</ul>
+<hr>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="repair-selection-and-order-completion-stage-appstagesproductsandservicescomponenttsx"><strong>Repair Selection and Order Completion Stage</strong> (<code>app/stages/ProductsAndServicesComponent.tsx</code>)<a href="#repair-selection-and-order-completion-stage-appstagesproductsandservicescomponenttsx" class="hash-link" aria-label="Direct link to repair-selection-and-order-completion-stage-appstagesproductsandservicescomponenttsx" title="Direct link to repair-selection-and-order-completion-stage-appstagesproductsandservicescomponenttsx">​</a></h2>
+<p>In this stage, users:</p>
+<ul>
+<li>View suggested repair services based on the analysis results.</li>
+<li>Select between repair options (e.g., &quot;pair&quot; or &quot;single&quot; shoe repair).</li>
+<li>Optionally add recommended products to their order.</li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="features-1">Features:<a href="#features-1" class="hash-link" aria-label="Direct link to Features:" title="Direct link to Features:">​</a></h3>
+<ul>
+<li>Services and products are dynamically displayed based on analysis.</li>
+<li>Users can toggle between repair options and add items to the cart.</li>
+<li>A cart summary displays selected services, products, and the total amount.</li>
+</ul>
+<hr>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="order-details-stage-appstagesdetailscomponenttsx"><strong>Order Details Stage</strong> (<code>app/stages/DetailsComponent.tsx</code>)<a href="#order-details-stage-appstagesdetailscomponenttsx" class="hash-link" aria-label="Direct link to order-details-stage-appstagesdetailscomponenttsx" title="Direct link to order-details-stage-appstagesdetailscomponenttsx">​</a></h2>
+<p>Users enter their personal and shipping details, such as:</p>
+<ul>
+<li>First Name</li>
+<li>Last Name</li>
+<li>Email Address</li>
+<li>Phone Number</li>
+<li>Street Address, City, and Postal Code</li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="key-points-1">Key Points:<a href="#key-points-1" class="hash-link" aria-label="Direct link to Key Points:" title="Direct link to Key Points:">​</a></h3>
+<ul>
+<li>The entered details are stored in the context and linked to the current order.</li>
+<li>Once submitted, the application proceeds to the checkout stage.</li>
+</ul>
+<hr>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="checkout-stage-appstagescheckoutcomponenttsx"><strong>Checkout Stage</strong> (<code>app/stages/CheckoutComponent.tsx</code>)<a href="#checkout-stage-appstagescheckoutcomponenttsx" class="hash-link" aria-label="Direct link to checkout-stage-appstagescheckoutcomponenttsx" title="Direct link to checkout-stage-appstagescheckoutcomponenttsx">​</a></h2>
+<p>In this stage, users:</p>
+<ul>
+<li>Review their selected services, products, and the total amount.</li>
+<li>Complete the payment process using Stripe’s <code>CardElement</code>.</li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="features-2">Features:<a href="#features-2" class="hash-link" aria-label="Direct link to Features:" title="Direct link to Features:">​</a></h3>
+<ul>
+<li>Payment processing with Stripe’s API.</li>
+<li>Payment is held until the cobbler confirms the repair job.</li>
+<li>Errors during payment are handled gracefully.</li>
+</ul>
+<hr>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="payment-success-stage-appcomponentspaymentreviewcomponenttsx"><strong>Payment Success Stage</strong> (<code>app/components/PaymentReviewComponent.tsx</code>)<a href="#payment-success-stage-appcomponentspaymentreviewcomponenttsx" class="hash-link" aria-label="Direct link to payment-success-stage-appcomponentspaymentreviewcomponenttsx" title="Direct link to payment-success-stage-appcomponentspaymentreviewcomponenttsx">​</a></h2>
+<p>After a successful payment, users are shown:</p>
+<ul>
+<li>A summary of the services and products they’ve selected.</li>
+<li>The total amount paid.</li>
+<li>A message informing them that the payment is on hold until the cobbler confirms the order.</li>
+</ul>
+<hr>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="flow-summary">Flow Summary:<a href="#flow-summary" class="hash-link" aria-label="Direct link to Flow Summary:" title="Direct link to Flow Summary:">​</a></h3>
+<ol>
+<li><strong>User</strong> uploads shoe details and photos.</li>
+<li><strong>System</strong> analyzes faults and generates service and product suggestions.</li>
+<li><strong>User</strong> selects repair services and optional products.</li>
+<li><strong>User</strong> enters personal details and confirms the order.</li>
+<li><strong>User</strong> reviews and completes the payment.</li>
+<li><strong>System</strong> confirms the payment and notifies the user about the order status.</li>
+</ol>
+<hr>
+<p>This flow handles both the user interaction and backend communication to process orders, analyze faults, and facilitate payments using Stripe.</p></div></article><nav class="pagination-nav docusaurus-mt-lg" aria-label="Docs pages"><a class="pagination-nav__link pagination-nav__link--prev" href="/architecture/database"><div class="pagination-nav__sublabel">Previous</div><div class="pagination-nav__label">Database Structure</div></a><a class="pagination-nav__link pagination-nav__link--next" href="/category/api-routes"><div class="pagination-nav__sublabel">Next</div><div class="pagination-nav__label">API Routes</div></a></nav></div></div><div class="col col--3"><div class="tableOfContents_bqdL thin-scrollbar theme-doc-toc-desktop"><ul class="table-of-contents table-of-contents__left-border"><li><a href="#stages-overview" class="table-of-contents__link toc-highlight">Stages Overview</a><ul><li><a href="#stages" class="table-of-contents__link toc-highlight">Stages:</a></li></ul></li><li><a href="#stage-flow-appstagesstagepagetsx" class="table-of-contents__link toc-highlight"><strong>Stage Flow</strong> (<code>app/stages/[stage]/page.tsx</code>)</a><ul><li><a href="#key-hooks-used" class="table-of-contents__link toc-highlight">Key Hooks Used:</a></li><li><a href="#functions" class="table-of-contents__link toc-highlight">Functions:</a></li></ul></li><li><a href="#prompt-and-photo-upload-stage-appstagespromptandphotouploadcomponenttsx" class="table-of-contents__link toc-highlight"><strong>Prompt and Photo Upload Stage</strong> (<code>app/stages/PromptAndPhotoUploadComponent.tsx</code>)</a><ul><li><a href="#features" class="table-of-contents__link toc-highlight">Features:</a></li></ul></li><li><a href="#analysis-stage-appstagesanalysiscomponenttsx" class="table-of-contents__link toc-highlight"><strong>Analysis Stage</strong> (<code>app/stages/AnalysisComponent.tsx</code>)</a><ul><li><a href="#key-points" class="table-of-contents__link toc-highlight">Key Points:</a></li></ul></li><li><a href="#repair-selection-and-order-completion-stage-appstagesproductsandservicescomponenttsx" class="table-of-contents__link toc-highlight"><strong>Repair Selection and Order Completion Stage</strong> (<code>app/stages/ProductsAndServicesComponent.tsx</code>)</a><ul><li><a href="#features-1" class="table-of-contents__link toc-highlight">Features:</a></li></ul></li><li><a href="#order-details-stage-appstagesdetailscomponenttsx" class="table-of-contents__link toc-highlight"><strong>Order Details Stage</strong> (<code>app/stages/DetailsComponent.tsx</code>)</a><ul><li><a href="#key-points-1" class="table-of-contents__link toc-highlight">Key Points:</a></li></ul></li><li><a href="#checkout-stage-appstagescheckoutcomponenttsx" class="table-of-contents__link toc-highlight"><strong>Checkout Stage</strong> (<code>app/stages/CheckoutComponent.tsx</code>)</a><ul><li><a href="#features-2" class="table-of-contents__link toc-highlight">Features:</a></li></ul></li><li><a href="#payment-success-stage-appcomponentspaymentreviewcomponenttsx" class="table-of-contents__link toc-highlight"><strong>Payment Success Stage</strong> (<code>app/components/PaymentReviewComponent.tsx</code>)</a><ul><li><a href="#flow-summary" class="table-of-contents__link toc-highlight">Flow Summary:</a></li></ul></li></ul></div></div></div></div></main></div></div></div></div>
+</body>
+</html>
