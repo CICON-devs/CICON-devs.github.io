@@ -3,9 +3,5 @@ import { defineConfig } from 'astro/config';
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://cicon-devs.github.io',
-  output: 'static',
-  build: {
-    assets: 'assets'
-  }
+  site: 'https://cicon-devs.github.io'
 });
