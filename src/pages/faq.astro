@@ -1,0 +1,67 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const title = 'Rules - CICON Hack 2025';
+const description = 'Rules and regulations for CICON Hack 2025.';
+
+const faqs = [
+  {
+    question: "Who can join?",
+    answer: "CICON Hack 2025 is open to students, fresh grads, and young professionals from any background. You don’t need to be based in Indonesia or the UK, it's fully remote."
+  },
+  {
+    question: "Do I need a team?",
+    answer: "You can join solo or with a team. If you don’t have a team, we’ll help match you with others based on your interests and skills."
+  },
+  {
+	question: "How many people can be in a team?",
+	answer: "You can have a team of up to 4 people. If you don’t have a team, we’ll help match you with others based on your interests and skills."
+  },
+  {
+    question: "Is there a registration fee?",
+    answer: "Nope. Registration is completely free!"
+  },
+  {
+    question: "What if I’m not a coder?",
+    answer: "That’s totally fine! We welcome and need designers, writers, strategists, researchers, and anyone with ideas to build a better repair ecosystem."
+  },
+  {
+    question: "What’s the time commitment?",
+    answer: "The hackathon spans a few weeks with flexible mentoring and prep. The main hack & pitch event happens online on September 6, 2025."
+  },
+  {
+    question: "What are the prizes?",
+    answer: "Rp 5.000.000 in total. 1st place gets Rp 4.000.000 and the chance to develop their idea with CICON. 2nd place gets Rp 1.000.000 and may run a pilot."
+  }
+];
+---
+
+<BaseLayout {title} {description}>
+  <main>
+    <section class="hero">
+      <div class="container">
+        <div class="hero-content">
+			<div class="hero-title-container">
+				<h1 class="hero-title">Frequently Asked Questions</h1>
+			</div>
+			<p class="hero-description">
+				Everything you need to know about CICON Hack 2025.
+			</p>
+		</div>
+      </div>
+    </section>
+
+    <section class="faq-section">
+      <div class="container">
+        <div class="faq-list">
+          {faqs.map(faq => (
+            <details class="faq-item">
+              <summary class="faq-question">{faq.question}</summary>
+              <p class="faq-answer">{faq.answer}</p>
+            </details>
+          ))}
+        </div>
+      </div>
+    </section>
+  </main>
+</BaseLayout>
