@@ -10,12 +10,177 @@
 					<span class="nav-title">CICON Hack 2025</span>
 				</a>
 			</div>
-			<div class="nav-links">
+			
+			<!-- Desktop Navigation -->
+			<div class="nav-links desktop-nav">
+				<a href="/">Home</a>
 				<a href="/team">Our Team</a>
 				<a href="/challenge-themes">Challenge Themes</a>
 				<a href="/faq">FAQ</a>
-				<a href="/#register" class="btn-primary">Register Now</a>
+				<a href="/#register" class="btn-primary" style="max-width: 120px;">Register</a>
+			</div>
+
+			<!-- Mobile Hamburger Button -->
+			<button class="hamburger-btn" id="hamburger-btn" aria-label="Toggle navigation menu">
+				<span class="hamburger-line"></span>
+				<span class="hamburger-line"></span>
+				<span class="hamburger-line"></span>
+			</button>
+		</div>
+
+		<!-- Mobile Navigation Menu -->
+		<div class="mobile-nav" id="mobile-nav">
+			<div class="mobile-nav-links">
+				<a href="/">Home</a>
+				<a href="/team">Our Team</a>
+				<a href="/challenge-themes">Challenge Themes</a>
+				<a href="/faq">FAQ</a>
+				<a href="/#register" class="btn-primary mobile-register-btn" style="border-bottom: 0px !important;">Register</a>
 			</div>
 		</div>
 	</nav>
 </header>
+
+<script>
+	// Mobile navigation toggle
+	const hamburgerBtn = document.getElementById('hamburger-btn');
+	const mobileNav = document.getElementById('mobile-nav');
+	
+	hamburgerBtn?.addEventListener('click', () => {
+		mobileNav?.classList.toggle('active');
+		hamburgerBtn.classList.toggle('active');
+	});
+
+	// Close mobile menu when clicking on a link
+	const mobileLinks = document.querySelectorAll('.mobile-nav-links a');
+	mobileLinks.forEach(link => {
+		link.addEventListener('click', () => {
+			mobileNav?.classList.remove('active');
+			hamburgerBtn?.classList.remove('active');
+		});
+	});
+
+	// Close mobile menu when clicking outside
+	document.addEventListener('click', (e) => {
+		if (!hamburgerBtn?.contains(e.target) && !mobileNav?.contains(e.target)) {
+			mobileNav?.classList.remove('active');
+			hamburgerBtn?.classList.remove('active');
+		}
+	});
+</script>
+
+<style>
+	/* Mobile Navigation Styles */
+	.hamburger-btn {
+		display: none;
+		flex-direction: column;
+		justify-content: space-around;
+		width: 30px;
+		height: 30px;
+		background: transparent;
+		border: none;
+		cursor: pointer;
+		padding: 0;
+		z-index: 1001;
+	}
+
+	.hamburger-line {
+		width: 100%;
+		height: 3px;
+		background: var(--accent);
+		border-radius: 2px;
+		transition: all 0.3s ease;
+	}
+
+	/* Hamburger Animation */
+	.hamburger-btn.active .hamburger-line:nth-child(1) {
+		transform: rotate(45deg) translate(5px, 5px);
+	}
+
+	.hamburger-btn.active .hamburger-line:nth-child(2) {
+		opacity: 0;
+		transform: translateX(-20px);
+	}
+
+	.hamburger-btn.active .hamburger-line:nth-child(3) {
+		transform: rotate(-45deg) translate(9px, -9px);
+	}
+
+	/* Mobile Navigation */
+	.mobile-nav {
+		display: none;
+		position: fixed;
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		background: white;
+		z-index: 1000;
+		padding-top: 80px;
+		border-bottom: var(--border-thick) solid var(--border-color);
+	}
+
+	.mobile-nav.active {
+		display: block;
+	}
+
+	.mobile-nav-links {
+		display: flex;
+		background: white;
+		flex-direction: column;
+		align-items: center;
+		gap: 2rem;
+		padding: 2rem;
+		border: 2px solid black;
+	}
+
+	.mobile-nav-links a {
+		text-decoration: none;
+		color: var(--accent-dark);
+		font-weight: 500;
+		font-size: 1.2rem;
+		transition: color 0.2s;
+		padding: 1rem 0;
+		width: 100%;
+		text-align: center;
+		border-bottom: 2px solid black;
+	}
+
+	.mobile-nav-links a:hover {
+		color: var(--accent) !important;
+	}
+
+	.mobile-register-btn {
+		margin-top: 1rem;
+		max-width: 200px !important;
+	}
+
+	/* Responsive Design */
+	@media (max-width: 768px) {
+		.desktop-nav {
+			display: none;
+		}
+
+		.hamburger-btn {
+			display: flex;
+		}
+
+		.nav-container {
+			padding: 1rem 1.5rem;
+		}
+
+		.nav-title {
+			font-size: 1rem;
+		}
+
+		.logo {
+			height: 28px;
+		}
+	}
+
+	@media (min-width: 769px) {
+		.mobile-nav {
+			display: none !important;
+		}
+	}
+</style>
