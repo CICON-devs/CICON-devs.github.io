@@ -9,7 +9,8 @@
     "astro": "astro"
   },
   "dependencies": {
-    "@heroicons/react": "^2.2.0",
-    "astro": "^5.11.0"
+    "@iconify-json/simple-icons": "^1.2.44",
+    "astro": "^5.11.0",
+    "astro-icon": "^1.1.5"
   }
 }
