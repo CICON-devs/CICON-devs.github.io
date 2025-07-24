@@ -749,3 +749,179 @@ button:focus {
     margin-top: 0.5rem;
     line-height: 1.6;
   }
+
+/* About CICON Section */
+.about-cicon-section {
+    padding: 6rem 0;
+    background: var(--accent-light);
+    border-bottom: 2px solid black;
+}
+
+.about-cicon-container {
+    display: flex;
+    align-items: center;
+    gap: 3rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    flex-wrap: wrap;
+}
+
+.about-cicon-image-wrapper {
+    position: relative;
+    flex: 1 1 350px;
+    min-width: 320px;
+    max-width: 480px;
+    height: 560px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.about-cicon-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    box-shadow: 0 4px 24px rgba(0,0,0,0.08);
+    z-index: 1;
+    border: 2px solid var(--border-color);
+}
+
+.about-cicon-overlay {
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: linear-gradient(120deg, rgba(109,139,116,0.25) 0%, rgba(39,90,90,0.18) 100%);
+    border-radius: 16px;
+    z-index: 2;
+    pointer-events: none;
+}
+
+.about-cicon-content {
+    flex: 2 1 400px;
+    min-width: 320px;
+    z-index: 3;
+}
+
+.about-cicon-body {
+    font-size: 1.15rem;
+    color: #222;
+    margin-top: 1.5rem;
+    line-height: 1.7;
+}
+
+.about-cicon-link {
+    color: var(--accent-blue);
+    text-decoration: underline;
+    font-weight: 500;
+    transition: color 0.2s;
+}
+.about-cicon-link:hover {
+    color: var(--accent-navy);
+}
+
+@media (max-width: 900px) {
+    .about-cicon-container {
+        flex-direction: column;
+        gap: 2rem;
+    }
+    .about-cicon-image-wrapper, .about-cicon-content {
+        min-width: 0;
+        max-width: 100%;
+    }
+    .about-cicon-image-wrapper {
+        width: 100%;
+        height: 220px;
+    }
+}
+
+@media (max-width: 640px) {
+    .about-cicon-section {
+        padding: 3rem 0;
+    }
+    .about-cicon-image-wrapper {
+        height: 160px;
+    }
+    .about-cicon-content {
+        padding: 0 0.5rem;
+    }
+}
+
+/* FAQ Callout Section */
+.faq-callout-section {
+    padding: 3rem 0 4rem;
+    background: var(--accent-lighter);
+    border-top: 2px solid var(--border-color);
+    text-align: center;
+}
+.faq-callout-container {
+    max-width: 600px;
+    margin: 0 auto;
+}
+.faq-callout-title {
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    color: var(--accent-dark);
+}
+.faq-callout-text {
+    font-size: 1.15rem;
+    margin-bottom: 2rem;
+    color: #222;
+}
+.faq-callout-btn {
+    margin-top: 0.5rem;
+    min-width: 160px;
+}
+
+.about-cicon-faq-link {
+    display: block;
+    margin-top: 1.5rem;
+    font-size: 1rem;
+    color: var(--accent-dark);
+}
+
+/* Footer FAQ link (if needed) */
+.footer-faq-link {
+    color: var(--accent-light);
+    text-decoration: underline;
+    margin-left: 1.5rem;
+    font-size: 1rem;
+    transition: color 0.2s;
+}
+.footer-faq-link:hover {
+    color: var(--accent-blue);
+}
+
+.faq-callout-inside-register {
+    background: var(--accent-light);
+    border: 2px solid var(--border-color);
+    margin-top: 2rem;
+    padding: 2rem;
+    text-align: center;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.04);
+    max-width: 420px;
+    margin-left: auto;
+    margin-right: auto;
+}
+.faq-callout-inside-register .faq-callout-title {
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    color: var(--accent-dark);
+}
+.faq-callout-inside-register .faq-callout-text {
+    font-size: 1rem;
+    margin-bottom: 1.1rem;
+    color: #222;
+}
+.faq-callout-inside-register .faq-callout-btn {
+    min-width: 120px;
+    font-size: 1rem;
+    padding: 0.5rem 1.25rem;
+}
+
+@media (max-width: 640px) {
+    .faq-callout-inside-register {
+        padding: 1rem 0.5rem 1.2rem 0.5rem;
+        max-width: 100%;
+    }
+}

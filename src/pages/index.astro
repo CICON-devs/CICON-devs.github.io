@@ -1,12 +1,16 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import ChallengeThemes from '../components/ChallengeThemes.astro';
+
+import Timeline from '../components/homepage/Timeline.astro';
+import Prizes from '../components/homepage/Prizes.astro';
+import ChallengeThemes from '../components/homepage/ChallengeThemes.astro';
+import AboutUs from '../components/homepage/AboutUs.astro';
+import Register from '../components/homepage/Register.astro';
 
 const title = 'CICON Hack 2025';
 const description =
 'Join CICON Hack 2025, a one-day hackathon focused on building innovative solutions for the repair ecosystem.';
 
-import Register from '../components/Register.astro';
 ---
 
 <BaseLayout {title} {description}>
@@ -47,92 +51,11 @@ import Register from '../components/Register.astro';
 				</div>
 			</div>
 		</section>
-
-		<!-- Timeline Section -->
-		<section id="timeline" class="timeline-section">
-			<div class="container">
-				<h2 class="section-title">Hackathon Timeline</h2>
-				<p class="section-description">
-					Here's how the hackathon unfolds
-				</p>
-				<div class="timeline">
-					<div class="timeline-item">
-						<div class="timeline-date">July 28 - August 17</div>
-						<div class="timeline-content">
-							<h3>Registration & Idea Submission</h3>
-							<p>Teams sign up and submit a short idea with problem statement and proposed approach</p>
-						</div>
-					</div>
-					
-					<div class="timeline-item">
-						<div class="timeline-date">August 18 - 25</div>
-						<div class="timeline-content">
-							<h3>Review & Shortlisting</h3>
-							<p>Internal team selects the <b>top 10 teams</b> for the live hackathon</p>
-						</div>
-					</div>
-					
-					<div class="timeline-item">
-						<div class="timeline-date">August 26</div>
-						<div class="timeline-content">
-							<h3>Finalist Announcement</h3>
-							<p>Selected teams announced with preparation materials and mentor assignments</p>
-						</div>
-					</div>
-					
-					<div class="timeline-item">
-						<div class="timeline-date">August 27 - September 5</div>
-						<div class="timeline-content">
-							<h3>Mentor Check-in</h3>
-							<p>One-on-one mentor sessions to help finalists refine scope and prepare</p>
-						</div>
-					</div>
-					
-					<div class="timeline-item highlight">
-						<div class="timeline-date">September 6</div>
-						<div class="timeline-content">
-							<h3>Live Hackathon Day</h3>
-							<p>Hackathon (9 AM - 6 PM GMT+7) with mentor sessions and checkpoints</p>
-						</div>
-					</div>
-					
-					<div class="timeline-item">
-						<div class="timeline-date">September 7</div>
-						<div class="timeline-content">
-							<h3>Pitching & Winner Announcement</h3>
-							<p>Live pitch presentations, Q&A sessions, and winner announcement</p>
-						</div>
-					</div>
-				</div>
-			</div>
-		</section>
-
+		
+		<Timeline />
 		<ChallengeThemes />
-
-		<!-- Prizes Section -->
-		<section id="prizes" class="prizes-section">
-			<div class="container">
-				<h2 class="section-title">Prizes & Recognition</h2>
-				<p class="section-description">From 10 teams, 2 winners will be selected</p>
-				
-				<div class="prizes-grid">
-					<div class="prize-card winner">
-						<div class="prize-badge">1st Place</div>
-						<div class="prize-amount">Rp 4.000.000</div>
-						<div class="prize-title">Build it with Us</div>
-						<p>Work with the CICON team to bring your winning idea to life. Potential for ongoing collaboration or paid opportunities.</p>
-					</div>
-					
-					<div class="prize-card runner-up">
-						<div class="prize-badge">2nd Place</div>
-						<div class="prize-amount">Rp 1.000.000</div>
-						<div class="prize-title">Pilot with CICON</div>
-						<p>Test and run your idea with support from the CICON team. A chance to see it in action and make real impact.</p>
-					</div>
-				</div>
-			</div>
-		</section>
-
+		<Prizes />
+		<AboutUs />
 		<Register />
 	</main>
 </BaseLayout>
