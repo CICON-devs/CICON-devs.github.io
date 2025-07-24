@@ -2,7 +2,7 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import ChallengeThemes from '../components/ChallengeThemes.astro';
 
-const title = 'CICON Hack 2025 – Build the Future of Repair';
+const title = 'CICON Hack 2025';
 const description =
 'Join CICON Hack 2025, a one-day hackathon focused on building innovative solutions for the repair ecosystem.';
 
@@ -27,7 +27,10 @@ import Register from '../components/Register.astro';
 						Bring repair into the mainstream and push sustainability forward whether you're building with code or creativity.
 					</p>
 					<div class="hero-badge">
-						<span>September 6, 2025 • 9 AM - 6 PM GMT+7</span>
+						<span class="date-text">
+							<span class="desktop-only">September 6, 2025 • 9 AM – 6 PM GMT+7</span>
+							<span class="mobile-only">September 6, 2025<br>9 AM – 6 PM GMT+7</span>
+						</span>
 					</div>
 					<div class="hero-actions">
 						<a href="#register" class="btn-primary btn-large">
@@ -104,7 +107,7 @@ import Register from '../components/Register.astro';
 			</div>
 		</section>
 
-		
+		<ChallengeThemes />
 
 		<!-- Prizes Section -->
 		<section id="prizes" class="prizes-section">
