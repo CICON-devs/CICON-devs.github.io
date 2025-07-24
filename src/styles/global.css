@@ -624,7 +624,7 @@ body {
     background: var(--accent-footer) !important;
     color: white;
     text-align: center;
-    padding: 2rem 0 2rem;
+    padding: 1.5rem 0;
 }
 
 .footer-links {
@@ -707,9 +707,7 @@ body {
 .footer-contact {
     display: flex;
     align-items: center;
-    padding: 1rem 2rem;
     justify-content: center;
-    gap: 1rem;
 }
 
 /* Smooth scrolling */
@@ -880,14 +878,13 @@ button:focus {
 }
 
 /* Footer FAQ link (if needed) */
-.footer-faq-link {
+.footer-link {
     color: var(--accent-light);
     text-decoration: underline;
-    margin-left: 1.5rem;
     font-size: 1rem;
     transition: color 0.2s;
 }
-.footer-faq-link:hover {
+.footer-link:hover {
     color: var(--accent-blue);
 }
 
@@ -924,4 +921,235 @@ button:focus {
         padding: 1rem 0.5rem 1.2rem 0.5rem;
         max-width: 100%;
     }
+}
+
+/* Who Can Join Section */
+.who-can-join-section {
+    padding: 6rem 0;
+    background: white;
+    border-bottom: 2px solid black;
+}
+
+.requirements-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+    margin-bottom: 3rem;
+}
+
+.requirement-item {
+    background: var(--accent-light);
+    padding: 2rem;
+    border: 2px solid var(--border-color);
+    text-align: center;
+    transition: all 0.3s;
+}
+
+.requirement-icon {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}
+
+.requirement-item h3 {
+    font-size: 1.3rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    color: var(--accent-dark);
+}
+
+.requirement-item p {
+    color: #222;
+    line-height: 1.6;
+    font-size: 1rem;
+}
+
+.requirements-note {
+    text-align: center;
+    margin-top: 2rem;
+}
+
+.requirements-note p {
+    font-size: 1.1rem;
+    color: var(--accent-dark);
+}
+
+.requirements-link {
+    color: var(--accent-blue);
+    text-decoration: underline;
+    font-weight: 500;
+    transition: color 0.2s;
+}
+
+.requirements-link:hover {
+    color: var(--accent-navy);
+}
+
+/* Timeline and Who Can Join Side by Side Layout */
+.timeline-who-can-join-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: start;
+}
+
+.timeline-who-can-join-container .timeline-section,
+.timeline-who-can-join-container .who-can-join-section {
+    padding: 6rem 0;
+    background: white;
+    border-bottom: 2px solid black;
+}
+
+@media (max-width: 1024px) {
+    .timeline-who-can-join-container {
+        grid-template-columns: 1fr;
+        gap: 0;
+    }
+    
+    .timeline-who-can-join-container .who-can-join-section {
+        order: -1; /* Who Can Join appears first on mobile */
+    }
+}
+
+@media (max-width: 640px) {
+    .requirements-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+    
+    .requirement-item {
+        padding: 1.5rem;
+    }
+    
+    .requirement-icon {
+        font-size: 2.5rem;
+    }
+}
+
+/* Footer Grid Layout */
+.footer-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    justify-content: space-between;
+    gap: 2rem;
+    align-items: start;
+    padding: 1rem 0;
+}
+
+.footer-contact-block {
+    align-items: flex-end;
+    text-align: right;
+}
+
+@media (max-width: 900px) {
+    .footer-grid {
+        grid-template-columns: 1fr;
+        justify-content: unset;
+    }
+    .footer-contact-block {
+        align-items: flex-start;
+        text-align: left;
+    }
+}
+
+.footer-bottom {
+    text-align: center;
+    padding-top: 1rem;
+}
+
+.footer-links-block, .footer-faq-block, .footer-contact-block {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+/* make links row */
+.footer-links-block .footer-links {
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 1.25rem;
+}
+
+.footer-title {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: var(--accent-light);
+    letter-spacing: 0.02em;
+}
+
+.footer-links {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.footer-link {
+    color: var(--accent-light);
+    text-decoration: underline;
+    font-size: 1.05rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: color 0.2s;
+}
+.footer-link:hover {
+    color: var(--accent-blue);
+}
+
+.footer-copyright {
+    font-size: 0.95rem;
+    color: var(--accent-light);
+    margin-top: 2rem;
+}
+
+.footer-contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.footer-input, .footer-textarea {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    border-radius: 6px;
+    border: 1.5px solid var(--accent-light);
+    font-size: 1rem;
+    background: #fff;
+    color: #222;
+    font-family: inherit;
+    resize: none;
+}
+
+.footer-input:focus, .footer-textarea:focus {
+    outline: 2px solid var(--accent-blue);
+    border-color: var(--accent-blue);
+}
+
+.footer-textarea {
+    min-height: 90px;
+    max-height: 200px;
+}
+
+.footer-submit {
+    width: fit-content;
+    align-self: flex-end;
+    margin-top: 0.5rem;
+    padding: 0.6rem 1.5rem;
+    font-size: 1rem;
+}
+
+@media (max-width: 900px) {
+    .footer-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+    .footer-links-block, .footer-faq-block, .footer-contact-block {
+        gap: 1.2rem;
+    }
+}
+
+.footer-links-block {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    text-align: left;
 }
