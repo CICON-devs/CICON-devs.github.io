@@ -771,7 +771,7 @@ button:focus {
     flex: 1 1 350px;
     min-width: 320px;
     max-width: 480px;
-    height: 560px;
+    aspect-ratio: 4 / 5 !important;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -829,7 +829,7 @@ button:focus {
     }
     .about-cicon-image-wrapper {
         width: 100%;
-        height: 220px;
+        aspect-ratio: 4 / 5 !important;
     }
 }
 
@@ -838,7 +838,7 @@ button:focus {
         padding: 3rem 0;
     }
     .about-cicon-image-wrapper {
-        height: 160px;
+        aspect-ratio: 4 / 5 !important;
     }
     .about-cicon-content {
         padding: 0 0.5rem;
