@@ -1,64 +1,68 @@
 ---
-import BaseLayout from '../layouts/BaseLayout.astro';
+import BaseLayout from "../layouts/BaseLayout.astro";
 
-import Timeline from '../components/homepage/Timeline.astro';
-import Prizes from '../components/homepage/Prizes.astro';
-import ChallengeThemes from '../components/homepage/ChallengeThemes.astro';
-import AboutUs from '../components/homepage/AboutUs.astro';
-import Register from '../components/homepage/Register.astro';
-import WhoCanJoin from '../components/homepage/WhoCanJoin.astro';
+import Timeline from "../components/homepage/Timeline.astro";
+import Prizes from "../components/homepage/Prizes.astro";
+import ChallengeThemes from "../components/homepage/ChallengeThemes.astro";
+import AboutUs from "../components/homepage/AboutUs.astro";
+import Register from "../components/homepage/Register.astro";
+import WhoCanJoin from "../components/homepage/WhoCanJoin.astro";
 
-const title = 'CICON Hack 2025';
+const title = "CICON Hack 2025";
 const description =
-'Join CICON Hack 2025, a one-day hackathon focused on building innovative solutions for the repair ecosystem.';
-
+  "Join CICON Hack 2025, a one-day hackathon focused on building innovative solutions for the repair ecosystem.";
 ---
 
 <BaseLayout {title} {description}>
-	<main>
-		<!-- Hero Section -->
-		<section class="hero">
-			<div class="container">
-				<div class="hero-content">
-					<div class="hero-title-container">
-						<img src="/cicon_logo.svg" alt="CICON" class="hero-logo" />
-						<h1 class="hero-title">
-							CICON Hack 2025
-						</h1>
-					</div> 
-					<p class="hero-description">
-						Every repaired shoe is one less in the landfill.  
-						CICON Hack 2025 is about making shoe repair visible, accessible, and worth caring about through tech, tools, content, or ideas that spread.  
-						Bring repair into the mainstream and push sustainability forward whether you're building with code or creativity.
-					</p>
-					<div class="hero-badge">
-						<span class="date-text">
-							<span class="desktop-only">September 6, 2025 • 9 AM – 6 PM GMT+7</span>
-							<span class="mobile-only">September 6, 2025<br>9 AM – 6 PM GMT+7</span>
-						</span>
-					</div>
-					<div class="hero-actions">
-						<a href="#register" class="btn-primary btn-large">
-							Register for Free
-						</a>
-						<a href="#timeline" class="btn-secondary btn-large">
-							View Timeline
-						</a>
-					</div>
-						<div class="stat">
-							<div class="stat-number">Rp 5.000.000</div>
-							<div class="stat-label">Total Prizes</div>
-						</div>
-				</div>
-			</div>
-		</section>
-		
-		<WhoCanJoin />
-		<ChallengeThemes />
-		<Timeline />
-		
-		<Prizes />
-		<AboutUs />
-		<Register />
-	</main>
+  <main>
+    <!-- Hero Section -->
+    <section class="hero">
+      <div class="container">
+        <div class="hero-content">
+          <div class="hero-title-container">
+            <img src="/cicon_logo.svg" alt="CICON" class="hero-logo" />
+            <h1 class="hero-title">CICON Hack 2025</h1>
+          </div>
+          <p class="hero-description">
+            Every repaired shoe is one less in the landfill. Build at CICON Hack
+            2025 to make repair accessible and move sustainability forward.
+          </p>
+          <div class="hero-badge">
+            <span class="date-text">
+              <span class="desktop-only"
+                >September 6, 2025 • 9 AM – 6 PM GMT+7</span
+              >
+              <span class="mobile-only"
+                >September 6, 2025<br />9 AM – 6 PM GMT+7</span
+              >
+            </span>
+          </div>
+          <div class="stat">
+            <div class="stat-bracket">[</div>
+            <div class="stat-content">
+              <div class="stat-number">Rp 5.000.000</div>
+              <div class="stat-label">in prizes to win</div>
+            </div>
+            <div class="stat-bracket">]</div>
+          </div>
+          <div class="hero-actions">
+            <a href="#register" class="btn-primary btn-large hero-btn">
+              Register for Free
+            </a>
+            <a href="#timeline" class="btn-secondary btn-large hero-btn">
+              View Timeline
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <WhoCanJoin />
+    <ChallengeThemes />
+    <Timeline />
+
+    <Prizes />
+    <AboutUs />
+    <Register />
+  </main>
 </BaseLayout>
