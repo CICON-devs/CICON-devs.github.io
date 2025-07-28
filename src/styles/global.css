@@ -578,7 +578,8 @@ body {
     font-size: var(--font-size-sm);
     font-weight: 600;
     display: inline-block;
-    margin-bottom: 1.5rem;
+    margin-top: 1.5rem;
+    margin-bottom: 0.5rem;
 }
 
 .prize-card.winner .prize-badge {
