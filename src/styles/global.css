@@ -175,11 +175,6 @@ body {
 	}
 }
 
-/* Register button with white border */
-.register-btn {
-	border: 2px solid white !important;
-}
-
 /* Hero Section */
 .hero {
     padding: 11rem 0 6rem;
@@ -189,7 +184,7 @@ body {
 
 .hero-content {
     text-align: center;
-    max-width: 800px;
+    max-width: 850px;
     margin: 0 auto;
 }
 
@@ -245,7 +240,6 @@ body {
     border-radius: 50px;
     font-size: var(--font-size-sm);
     font-weight: 500;
-    margin-top: 2rem;
     margin-bottom: 2rem;
     border: 2px solid var(--accent) !important;
 }
@@ -278,7 +272,7 @@ body {
 .hero-title-container {
     align-items: center;
     justify-content: center;
-    margin-bottom: 3rem;
+    margin-bottom: 2rem;
 }
 
 .hero-title {
@@ -296,7 +290,7 @@ body {
 }
 .hero-description {
     font-size: var(--font-size-xl);
-    margin-bottom: 0rem;
+    margin-bottom: 1rem;
     line-height: var(--line-height-relaxed);
 }
 
@@ -304,7 +298,7 @@ body {
     display: flex;
     gap: 1rem;
     justify-content: center;
-    margin-bottom: 4rem;
+    margin-bottom: 2rem;
 }
 
 .hero-stats {
@@ -319,7 +313,7 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 1rem;
+    gap: 0rem;
 }
 
 .stat-bracket {
@@ -333,7 +327,7 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 0.5rem;
+    gap: 0rem;
 }
 
 .stat-number {
@@ -343,7 +337,7 @@ body {
 }
 
 .stat-label {
-    font-size: var(--font-size-2xl);
+    font-size: var(--font-size-xl);
     font-weight: 600;
     color: var(--accent-dark) !important;
 }
@@ -556,7 +550,7 @@ body {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 2rem;
-    max-width: 1200px;
+    max-width: 800px;
     margin: 0 auto;
 }
 
@@ -611,7 +605,7 @@ body {
 }
 
 .prize-title {
-    font-size: var(--font-size-2xl);
+    font-size: var(--font-size-xl);
     font-weight: 600;
     margin-bottom: 1rem;
 }
@@ -795,7 +789,7 @@ body {
     }
     
     .stat-content {
-        gap: 0.25rem;
+        gap: 0rem;
     }
     
     .stat-number {
