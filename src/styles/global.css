@@ -234,14 +234,10 @@ body {
 
 .hero-badge {
     display: inline-block;
-    background: var(--accent-lighter) !important;
-    color: var(--accent) !important;
-    padding: 0.5rem 1rem;
-    border-radius: 50px;
-    font-size: var(--font-size-sm);
-    font-weight: 500;
+    color: var(--accent-dark) !important;
+    font-size: var(--font-size-base);
+    font-weight: 600;
     margin-bottom: 2rem;
-    border: 2px solid var(--accent) !important;
 }
 
 /* Default to showing desktop version */
