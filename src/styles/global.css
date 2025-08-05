@@ -1311,3 +1311,79 @@ button:focus {
         text-align: center !important;
     }
 }
+
+/* Submission Guidelines Section */
+.guidelines-section {
+    padding: 6rem 0;
+    background: white;
+    border-bottom: var(--border-thick) solid var(--border-color);
+}
+
+.guidelines-section .container {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.guidelines-list {
+    margin: 2rem 0;
+    padding-left: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.guidelines-list > li {
+    list-style: decimal;
+}
+
+.guidelines-list h3 {
+    font-size: var(--font-size-2xl);
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+}
+
+.guidelines-list p,
+.guidelines-list ul {
+    font-size: var(--font-size-base);
+    line-height: var(--line-height-relaxed);
+    color: #222;
+}
+
+.guidelines-list ul {
+    list-style: disc;
+    margin-left: 1.5rem;
+    margin-top: 0.75rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+@media (max-width: 640px) {
+    .guidelines-section {
+        padding: 3rem 0;
+    }
+    .guidelines-list {
+        gap: 1.5rem;
+    }
+}
+
+/* Submission Note Callout */
+.submission-note {
+    border-top: var(--border-thick) solid var(--border-color);
+    margin-top: 3rem;
+    padding-top: 2rem;
+    font-size: var(--font-size-lg);
+    line-height: var(--line-height-relaxed);
+}
+
+.submission-note strong {
+    color: var(--accent-dark);
+}
+
+@media (max-width: 640px) {
+    .submission-note {
+        font-size: var(--font-size-base);
+        margin-top: 2rem;
+        padding-top: 1.5rem;
+    }
+}
