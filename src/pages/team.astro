@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import { Icon } from 'astro-icon/components';
 
 const title = 'Team - CICON Hack 2025';
 const description = 'Meet the team behind CICON Hack 2025 - passionate individuals dedicated to building the future of repair.';
@@ -22,46 +23,63 @@ const description = 'Meet the team behind CICON Hack 2025 - passionate individua
 			</div>
 		</section>
 
+		<!-- Mentors Section -->
+		<section class="team-section">
+			<div class="container">
+				<h2 class="section-title">Meet Our Mentors</h2>
+				<p class="section-description">We'll reveal our amazing mentors soon - stay tuned!</p>
+			</div>
+		</section>
+
 		<!-- Team Section -->
 		<section class="team-section">
 			<div class="container">
-				<h2 class="section-title">Our Team</h2>
+				<h2 class="section-title">Our Team at CICON</h2>
 				<p class="section-description">A small team with a big mission: meet the people building CICON from the ground up</p>
 				
 				<div class="team-grid">
 					<div class="team-card">
 						<div class="team-photo">
-							<div class="photo-placeholder">
-								<span>👩‍🏫</span>
-							</div>
+							<img src="/team-photos/team-photo-tanya.jpg" alt="Tanya" />
 						</div>
 						<div class="team-info">
 							<h3>Tanya</h3>
 							<p class="team-role">Founder & CEO</p>
+						<div class="team-links">
+							<a href="https://www.linkedin.com/in/tanyamulesa/" target="_blank" aria-label="Tanya on LinkedIn">
+								<Icon name="simple-icons:linkedin" />
+							</a>
+						</div>
 						</div>
 					</div>
 
 					<div class="team-card">
 						<div class="team-photo">
-							<div class="photo-placeholder">
-								<span>👩‍💼</span>
-							</div>
+							<img src="/team-photos/team-photo-alek.jpg" alt="Alek" />
 						</div>
 						<div class="team-info">
 							<h3>Alek</h3>
 							<p class="team-role">Project Manager</p>
+						<div class="team-links">
+							<a href="https://www.linkedin.com/in/legosteva/" target="_blank" aria-label="Alek on LinkedIn">
+								<Icon name="simple-icons:linkedin" />
+							</a>
+						</div>
 						</div>
 					</div>
 
 					<div class="team-card">
 						<div class="team-photo">
-							<div class="photo-placeholder">
-								<span>👨‍🔧</span>
-							</div>
+							<img src="/team-photos/team-photo-salman.jpg" alt="Salman" />
 						</div>
 						<div class="team-info">
 							<h3>Salman</h3>
 							<p class="team-role">Lead Developer</p>
+						<div class="team-links">
+							<a href="https://www.linkedin.com/in/salman-fatahillah/" target="_blank" aria-label="Salman on LinkedIn">
+								<Icon name="simple-icons:linkedin" />
+							</a>
+						</div>
 						</div>
 					</div>
 				</div>
