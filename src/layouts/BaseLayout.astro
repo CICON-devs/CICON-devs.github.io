@@ -2,6 +2,7 @@
 import '../styles/global.css';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
+import { REGISTRATION_CLOSES_AT_ISO } from '../config';
 const { title, description } = Astro.props;
 ---
 
@@ -14,9 +15,53 @@ const { title, description } = Astro.props;
         <link rel="icon" href="/favicon.svg" />
     </head>
 
-    <body>
+    <body data-reg-close={REGISTRATION_CLOSES_AT_ISO}>
+        <div id="sitewide-banner" class="sitewide-banner" hidden>
+            <div class="container">
+                <p><strong>Registrations are now closed!</strong> Submissions are now open — see <a href="/submission-guidelines">guidelines</a>.</p>
+            </div>
+        </div>
         <Header />
         <main><slot /></main>
         <Footer />
+
+        <script is:inline>
+            (function () {
+                const CLOSES_AT_ISO = document.body?.dataset?.regClose;
+                if (!CLOSES_AT_ISO) return;
+                const now = new Date();
+                const closesAt = new Date(CLOSES_AT_ISO);
+                const isClosed = now >= closesAt;
+
+                const banner = document.getElementById('sitewide-banner');
+                if (isClosed && banner) {
+                    banner.removeAttribute('hidden');
+                }
+
+                // Disable any register links globally
+                if (isClosed) {
+                    document.querySelectorAll('a[href*="#register"], a[href*="/register"]').forEach((el) => {
+                        el.classList.add('is-disabled');
+                        el.setAttribute('aria-disabled', 'true');
+                        el.addEventListener('click', function (e) {
+                            e.preventDefault();
+                        });
+                        el.textContent = 'Registration Closed';
+                    });
+                }
+            })();
+        </script>
+
+        <style is:global>
+            .sitewide-banner {
+                background: #111;
+                color: #fff;
+                padding: 0.75rem 0;
+                border-bottom: 2px solid black;
+                text-align: center;
+            }
+            .sitewide-banner a { color: #fff; text-decoration: underline; }
+            .is-disabled { opacity: 0.6; pointer-events: none; }
+        </style>
     </body>
 </html>
