@@ -7,6 +7,7 @@ import ChallengeThemes from "../components/homepage/ChallengeThemes.astro";
 import AboutUs from "../components/homepage/AboutUs.astro";
 import Register from "../components/homepage/Register.astro";
 import WhoCanJoin from "../components/homepage/WhoCanJoin.astro";
+import { REGISTRATION_CLOSES_AT_ISO, SUBMISSION_CLOSES_AT_ISO } from "../config";
 
 const title = "CICON Hack 2025";
 const description =
@@ -16,7 +17,7 @@ const description =
 <BaseLayout {title} {description}>
   <main>
     <!-- Hero Section -->
-    <section class="hero">
+    <section class="hero" data-reg-close={REGISTRATION_CLOSES_AT_ISO} data-sub-close={SUBMISSION_CLOSES_AT_ISO}>
       <div class="container">
         <div class="hero-content">
           <div class="hero-title-container">
@@ -26,7 +27,7 @@ const description =
             <span>September 6, 2025 • 9 AM — 6 PM GMT+7</span>
           </div>
           <div class="countdown-wrapper">
-            <p class="countdown-label">Registration closes 17 Aug 2025:</p>
+            <p class="countdown-label" id="countdown-label">Submissions close 25 Aug 2025:</p>
             <div id="countdown" class="countdown" aria-label="Countdown to registration deadline">
               <span><span id="countdown-days">00</span>d</span>
               <span><span id="countdown-hours">00</span>h</span>
@@ -44,7 +45,7 @@ const description =
             </div>
           </div>
           <div class="hero-actions">
-            <a href="#register" class="btn-primary btn-large hero-btn">
+            <a href="#register" class="btn-primary btn-large hero-btn" id="hero-register-btn">
               Register for Free
             </a>
             <a href="#timeline" class="btn-secondary btn-large hero-btn">
@@ -57,12 +58,20 @@ const description =
 
     <script is:inline>
       (function () {
-        const targetDate = new Date("2025-08-17T16:59:00Z"); // 9 AM GMT+7
+        const hero = document.querySelector('.hero');
+        const regIso = hero?.getAttribute('data-reg-close');
+        const subIso = hero?.getAttribute('data-sub-close');
+        if (!regIso || !subIso) return;
+        const registrationClose = new Date(regIso);
+        const submissionClose = new Date(subIso);
+        let targetDate = registrationClose; // default to registration countdown
         function pad(n) {
           return n.toString().padStart(2, "0");
         }
         function updateCountdown() {
           const now = new Date();
+          // After registration closes, switch countdown to submission deadline
+          targetDate = now >= registrationClose ? submissionClose : registrationClose;
           let diff = targetDate - now;
           if (diff < 0) diff = 0;
           const days = Math.floor(diff / (1000 * 60 * 60 * 24));
@@ -77,6 +86,21 @@ const description =
         }
         updateCountdown();
         setInterval(updateCountdown, 1000);
+
+        // If closed, hide countdown and disable hero CTA
+        const nowForCta = new Date();
+        const registrationIsClosed = nowForCta >= registrationClose;
+        if (registrationIsClosed) {
+          const label = document.getElementById('countdown-label');
+          if (label) label.textContent = 'Submissions close 25 Aug 2025:';
+          const heroBtn = document.getElementById('hero-register-btn');
+          if (heroBtn) {
+            heroBtn.classList.add('is-disabled');
+            heroBtn.setAttribute('aria-disabled', 'true');
+            heroBtn.textContent = 'Registration Closed';
+            heroBtn.addEventListener('click', function (e) { e.preventDefault(); });
+          }
+        }
       })();
     </script>
 

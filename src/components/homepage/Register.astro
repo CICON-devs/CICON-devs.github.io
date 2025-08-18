@@ -1,18 +1,18 @@
 ---
+import { REGISTRATION_CLOSES_AT_ISO } from "../../config";
 const googleFormUrl = "https://docs.google.com/forms/d/e/1FAIpQLSd1wNVrUiAOxbbMd0-Vl90ZmRzoweiBjVypZwi3tDtc_9Thtg/viewform";
 ---
 
 <!-- Registration Section -->
-<section id="register" class="register-section">
+<section id="register" class="register-section" data-reg-close={REGISTRATION_CLOSES_AT_ISO}>
     <div class="container">
         <div class="register-content">
-            <h2>Want to join? Register now!</h2>
-            <div class="register-form">
-                <a href={googleFormUrl} target="_blank" rel="noopener noreferrer" class="btn-primary">Register Now</a>
+            <h2 id="register-heading">Registrations are now closed!</h2>
+            <div class="register-form" id="register-cta">
+                <a class="btn-primary is-disabled" aria-disabled="true">Registration Closed</a>
             </div>
-            <p class="register-note">
-                Registration deadline: <br/>
-                <b>23:59 GMT+7 on August 17, 2025</b>
+            <p class="register-note" id="register-note">
+                Submissions are now open. See the <a href="/submission-guidelines">submission guidelines</a>.
             </p>
             <div class="faq-callout-inside-register">
                 <h3 class="faq-callout-title">Got Questions?</h3>
@@ -22,3 +22,5 @@ const googleFormUrl = "https://docs.google.com/forms/d/e/1FAIpQLSd1wNVrUiAOxbbMd
         </div>
     </div>
 </section>
+
+<script is:inline>{``}</script>
