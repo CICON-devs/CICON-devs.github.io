@@ -1463,3 +1463,12 @@ button:focus {
         padding-top: 1.5rem;
     }
 }
+
+/* Register note link styling */
+.register-note a {
+	color: var(--accent) !important;
+	text-decoration: underline;
+}
+.register-note a:hover {
+	color: var(--accent-dark) !important;
+}

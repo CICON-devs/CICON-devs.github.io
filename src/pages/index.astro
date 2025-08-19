@@ -17,7 +17,7 @@ const description =
 <BaseLayout {title} {description}>
   <main>
     <!-- Hero Section -->
-    <section class="hero" data-reg-close={REGISTRATION_CLOSES_AT_ISO} data-sub-close={SUBMISSION_CLOSES_AT_ISO}>
+    <section class="hero" data-reg-close={REGISTRATION_CLOSES_AT_ISO} data-sub-close={SUBMISSION_CLOSES_AT_ISO} data-submit-url="https://docs.google.com/forms/d/e/1FAIpQLSeAhFrqotC0enpMphOL2Cq6rKvQL8Pu6ZUJ2mj_L9JW8SjWeg/viewform?usp=header">
       <div class="container">
         <div class="hero-content">
           <div class="hero-title-container">
@@ -61,6 +61,7 @@ const description =
         const hero = document.querySelector('.hero');
         const regIso = hero?.getAttribute('data-reg-close');
         const subIso = hero?.getAttribute('data-sub-close');
+        const submitUrl = hero?.getAttribute('data-submit-url');
         if (!regIso || !subIso) return;
         const registrationClose = new Date(regIso);
         const submissionClose = new Date(subIso);
@@ -95,10 +96,19 @@ const description =
           if (label) label.textContent = 'Submissions close 25 Aug 2025:';
           const heroBtn = document.getElementById('hero-register-btn');
           if (heroBtn) {
-            heroBtn.classList.add('is-disabled');
-            heroBtn.setAttribute('aria-disabled', 'true');
-            heroBtn.textContent = 'Registration Closed';
-            heroBtn.addEventListener('click', function (e) { e.preventDefault(); });
+            if (submitUrl) {
+              heroBtn.classList.remove('is-disabled');
+              heroBtn.removeAttribute('aria-disabled');
+              heroBtn.setAttribute('href', submitUrl);
+              heroBtn.setAttribute('target', '_blank');
+              heroBtn.setAttribute('rel', 'noopener noreferrer');
+              heroBtn.textContent = 'Submit Now';
+            } else {
+              heroBtn.classList.add('is-disabled');
+              heroBtn.setAttribute('aria-disabled', 'true');
+              heroBtn.textContent = 'Registration Closed';
+              heroBtn.addEventListener('click', function (e) { e.preventDefault(); });
+            }
           }
         }
       })();

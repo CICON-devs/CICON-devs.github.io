@@ -16,12 +16,12 @@ const { title, description } = Astro.props;
     </head>
 
     <body data-reg-close={REGISTRATION_CLOSES_AT_ISO}>
+        <Header />
         <div id="sitewide-banner" class="sitewide-banner" hidden>
             <div class="container">
                 <p><strong>Registrations are now closed!</strong> Submissions are now open — see <a href="/submission-guidelines">guidelines</a>.</p>
             </div>
         </div>
-        <Header />
         <main><slot /></main>
         <Footer />
 
@@ -36,6 +36,9 @@ const { title, description } = Astro.props;
                 const banner = document.getElementById('sitewide-banner');
                 if (isClosed && banner) {
                     banner.removeAttribute('hidden');
+                    const nav = document.querySelector('.nav');
+                    const navHeight = nav ? nav.getBoundingClientRect().height : 0;
+                    banner.style.marginTop = navHeight ? navHeight + 'px' : '64px';
                 }
 
                 // Disable any register links globally
