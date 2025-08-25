@@ -27,7 +27,7 @@ const description =
             <span>September 6, 2025 • 9 AM — 6 PM GMT+7</span>
           </div>
           <div class="countdown-wrapper">
-            <p class="countdown-label" id="countdown-label">Submissions close 25 Aug 2025:</p>
+            <p class="countdown-label" id="countdown-label">Submissions close 29 Aug 2025:</p>
             <div id="countdown" class="countdown" aria-label="Countdown to registration deadline">
               <span><span id="countdown-days">00</span>d</span>
               <span><span id="countdown-hours">00</span>h</span>
@@ -93,7 +93,7 @@ const description =
         const registrationIsClosed = nowForCta >= registrationClose;
         if (registrationIsClosed) {
           const label = document.getElementById('countdown-label');
-          if (label) label.textContent = 'Submissions close 25 Aug 2025:';
+          if (label) label.textContent = 'Submissions close 29 Aug 2025:';
           const heroBtn = document.getElementById('hero-register-btn');
           if (heroBtn) {
             if (submitUrl) {
