@@ -178,7 +178,7 @@ body {
 
 /* Hero Section */
 .hero {
-    padding: 11rem 0 6rem;
+    padding: 9rem 0 6rem;
     background: var(--accent-light);
     border-bottom: 2px solid black;
 }
@@ -234,7 +234,7 @@ body {
 }
 
 .hero-badge {
-    display: inline-block;
+    display: block;
     color: var(--accent-dark) !important;
     font-size: var(--font-size-base);
     font-weight: 600;
@@ -821,7 +821,7 @@ body {
     }
     
     .hero {
-        padding: 8rem 0 4rem;
+        padding: 6.5rem 0 4rem;
     }
     
     .hero-title {

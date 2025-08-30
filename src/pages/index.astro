@@ -24,7 +24,7 @@ const description =
             <h1 class="hero-title">CICON Hack 2025</h1>
           </div>
           <div class="hero-badge">
-            <span>September 6, 2025 • 9 AM — 6 PM GMT+7</span>
+            <span>September 7, 2025 • Pitch Day • 4 PM - 7 PM GMT+7</span>
           </div>
           <div class="countdown-wrapper">
             <p class="countdown-label" id="countdown-label">Submissions close 29 Aug 2025:</p>
@@ -86,15 +86,32 @@ const description =
           document.getElementById("countdown-seconds").textContent = pad(seconds);
         }
         updateCountdown();
-        setInterval(updateCountdown, 1000);
+        const intervalId = setInterval(updateCountdown, 1000);
 
         // If closed, hide countdown and disable hero CTA
         const nowForCta = new Date();
         const registrationIsClosed = nowForCta >= registrationClose;
-        if (registrationIsClosed) {
-          const label = document.getElementById('countdown-label');
+        const submissionIsClosed = nowForCta >= submissionClose;
+        const label = document.getElementById('countdown-label');
+        const countdownEl = document.getElementById('countdown');
+        const countdownWrapper = document.querySelector('.countdown-wrapper');
+        const heroBtn = document.getElementById('hero-register-btn');
+
+        if (submissionIsClosed) {
+          if (label) label.textContent = 'Submissions are now closed.';
+          if (countdownEl && countdownEl.style) countdownEl.style.display = 'none';
+          clearInterval(intervalId);
+          if (heroBtn) {
+            heroBtn.classList.add('is-disabled');
+            heroBtn.setAttribute('aria-disabled', 'true');
+            heroBtn.removeAttribute('href');
+            heroBtn.removeAttribute('target');
+            heroBtn.removeAttribute('rel');
+            heroBtn.textContent = 'Submissions Closed';
+            heroBtn.addEventListener('click', function (e) { e.preventDefault(); });
+          }
+        } else if (registrationIsClosed) {
           if (label) label.textContent = 'Submissions close 29 Aug 2025:';
-          const heroBtn = document.getElementById('hero-register-btn');
           if (heroBtn) {
             if (submitUrl) {
               heroBtn.classList.remove('is-disabled');
